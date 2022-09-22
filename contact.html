@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Contact</title>
+  </head>
+  <body>
+    <p>Phone: 0788234128 <br>
+      Email: muhire@nicatech.co.rw <br>
+      PO Box 4239 Kigali-Rwanda
+    </p>
+    <br>
+    <form class="" action="mailto:info@nicatech.co.rw?subject=feedback"
+    method="post" enctype="text/plain">
+      <label for="nom">Your Name</label>
+      <input type="text" name="nom" id="nom" required><span id="miss_nom"></span><br>
+      <label for="mail">Your email</label>
+      <input type="email" name="mail" id="mail"><br>
+      <label for="message">Your Message</label><br>
+      <textarea name="message" rows="8" cols="80"></textarea><br>
+      <input type="submit" name="" value="send" id="send">
+    </form>
+    <script type="text/javascript">
+      var validation = document.getElementById('send');
+      var nom = document.getElementById('nom');
+      var miss_nom = document.getElementById('miss_nom');
+      var nom_v = /[a-zA-Z]/;
+      validation.addEventListener('click', f_valid);
+
+      function f_valid(e){
+       if(nom.validity.valueMissing){
+         e.preventDefault();
+         miss_nom.innerHTML = '<em>The Name is required</em>';
+         miss_nom.style.color = 'red';
+       }else if(nom_v.test(nom.value) == false) {
+         event.preventDefault();
+         miss_nom.innerHTML = '<em>Format incorrect</em>';
+         miss_nom.style.color = 'red';
+       }else {
+
+       }
+
+      }
+
+    </script>
+  </body>
+</html>
